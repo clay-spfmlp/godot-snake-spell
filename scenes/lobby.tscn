@@ -1,0 +1,950 @@
+[gd_scene load_steps=24 format=3 uid="uid://3f74s5bcpbyl"]
+
+[ext_resource type="Script" uid="uid://njspfoow443s" path="res://scenes/lobby.gd" id="1_lobby"]
+
+[sub_resource type="Gradient" id="Gradient_1"]
+offsets = PackedFloat32Array(0, 0.5, 1)
+colors = PackedColorArray(0.0823529, 0.0901961, 0.168627, 1, 0.152941, 0.203922, 0.294118, 1, 0.0352941, 0.0470588, 0.0901961, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_1"]
+gradient = SubResource("Gradient_1")
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(0.5, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.2, 0.25, 0.35, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.5, 0.7, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4"]
+bg_color = Color(0.15, 0.3, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.2, 0.4, 0.7, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.3, 0.5, 0.8, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.15, 0.2, 0.3, 0.8)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.3, 0.4, 0.6, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_green_pressed"]
+bg_color = Color(0.15, 0.55, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_green"]
+bg_color = Color(0.192157, 0.654902, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.270588, 0.580392, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blue_pressed"]
+bg_color = Color(0, 0.35, 0.7, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_blue"]
+bg_color = Color(0, 0.4, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.3, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_red_pressed"]
+bg_color = Color(0.7, 0.15, 0.15, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_red"]
+bg_color = Color(0.8, 0.2, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.1, 0.1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_purple_pressed"]
+bg_color = Color(0.5, 0.15, 0.7, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_purple"]
+bg_color = Color(0.6, 0.2, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.1, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orange_pressed"]
+bg_color = Color(0.8, 0.45, 0.05, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orange"]
+bg_color = Color(0.9, 0.5, 0.1, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 0.4, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yellow_pressed"]
+bg_color = Color(0.8, 0.8, 0.15, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yellow"]
+bg_color = Color(0.9, 0.9, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 0.7, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pink_pressed"]
+bg_color = Color(0.7, 0.2, 0.5, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pink"]
+bg_color = Color(0.9, 0.4, 0.7, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.7, 0.2, 0.5, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyan_pressed"]
+bg_color = Color(0, 0.6, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cyan"]
+bg_color = Color(0, 0.8, 0.8, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0.6, 0.6, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lobby")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_1")
+
+[node name="MainMenuPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -250.0
+offset_right = 300.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainMenuPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 42
+text = "🐍 Snake Spell"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MainMenuPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 20
+text = "Choose Your Adventure"
+horizontal_alignment = 1
+
+[node name="SinglePlayerButton" type="Button" parent="MainMenuPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🎮 Single Player"
+
+[node name="MultiplayerButton" type="Button" parent="MainMenuPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🌐 Multiplayer"
+
+[node name="SinglePlayerPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SinglePlayerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="SinglePlayerPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 38
+text = "🎮 Single Player"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="SinglePlayerPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Select Game Mode"
+horizontal_alignment = 1
+
+[node name="PlayerNamePanel" type="Panel" parent="SinglePlayerPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="PlayerName" type="HBoxContainer" parent="SinglePlayerPanel/VBoxContainer/PlayerNamePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 20.0
+offset_right = -25.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="NameLabel" type="Label" parent="SinglePlayerPanel/VBoxContainer/PlayerNamePanel/PlayerName"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "  Player Name:"
+
+[node name="SPNameInput" type="LineEdit" parent="SinglePlayerPanel/VBoxContainer/PlayerNamePanel/PlayerName"]
+custom_minimum_size = Vector2(472, 45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Player"
+placeholder_text = "Enter your name"
+clear_button_enabled = true
+
+[node name="ColorPanel" type="Panel" parent="SinglePlayerPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="ColorSection" type="VBoxContainer" parent="SinglePlayerPanel/VBoxContainer/ColorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = -25.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="ColorLabel" type="Label" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "🎨 Snake Color:"
+
+[node name="ColorButtons" type="HBoxContainer" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="GreenButton" type="Button" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Classic Green"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_green_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_green")
+
+[node name="BlueButton" type="Button" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Ocean Blue"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_blue_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_blue")
+
+[node name="RedButton" type="Button" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Fire Red"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_red_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_red")
+
+[node name="PurpleButton" type="Button" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Royal Purple"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_purple_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_purple")
+
+[node name="OrangeButton" type="Button" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Sunset Orange"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_orange_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_orange")
+
+[node name="YellowButton" type="Button" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Golden Yellow"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yellow_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yellow")
+
+[node name="PinkButton" type="Button" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Hot Pink"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pink_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pink")
+
+[node name="CyanButton" type="Button" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Electric Cyan"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cyan_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cyan")
+
+[node name="SelectedColorLabel" type="Label" parent="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Selected: Classic Green"
+horizontal_alignment = 1
+
+[node name="ClassicButton" type="Button" parent="SinglePlayerPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🏆 Classic Mode"
+
+[node name="ComingSoonLabel" type="Label" parent="SinglePlayerPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.7, 0.8, 1)
+theme_override_font_sizes/font_size = 16
+text = "More game modes coming soon..."
+horizontal_alignment = 1
+
+[node name="SPBackButton" type="Button" parent="SinglePlayerPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🏠 Back to Main Menu"
+
+[node name="MultiplayerPanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -350.0
+offset_right = 400.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MultiplayerPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="MultiplayerPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "🌐 Multiplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Subtitle" type="Label" parent="MultiplayerPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 18
+text = "Up to 8 Players • Bigger Arena • Epic Battles"
+horizontal_alignment = 1
+
+[node name="PlayerNamePanel" type="Panel" parent="MultiplayerPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="PlayerName" type="HBoxContainer" parent="MultiplayerPanel/VBoxContainer/PlayerNamePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 20.0
+offset_right = -25.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="NameLabel" type="Label" parent="MultiplayerPanel/VBoxContainer/PlayerNamePanel/PlayerName"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "   Player Name:"
+
+[node name="NameInput" type="LineEdit" parent="MultiplayerPanel/VBoxContainer/PlayerNamePanel/PlayerName"]
+custom_minimum_size = Vector2(365, 45)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+placeholder_text = "Enter your name"
+clear_button_enabled = true
+
+[node name="HostButton" type="Button" parent="MultiplayerPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🚀 Host Game"
+
+[node name="JoinButton" type="Button" parent="MultiplayerPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🔗 Join Game"
+
+[node name="MPBackButton" type="Button" parent="MultiplayerPanel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🏠 Back to Main Menu"
+
+[node name="GamePanel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="GameSection" type="VBoxContainer" parent="GamePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="GamePanel/GameSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 42
+text = "🐍 Snake Spell - Multiplayer"
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="GamePanel/GameSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "Waiting for players..."
+horizontal_alignment = 1
+
+[node name="GameModePanel" type="Panel" parent="GamePanel/GameSection"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="GameModeSection" type="VBoxContainer" parent="GamePanel/GameSection/GameModePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = -25.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="GameModeLabel" type="Label" parent="GamePanel/GameSection/GameModePanel/GameModeSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "🎮 Game Mode:"
+
+[node name="GameModeButtons" type="HBoxContainer" parent="GamePanel/GameSection/GameModePanel/GameModeSection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ClassicModeButton" type="Button" parent="GamePanel/GameSection/GameModePanel/GameModeSection/GameModeButtons"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🐍 Classic"
+
+[node name="SelectedModeLabel" type="Label" parent="GamePanel/GameSection/GameModePanel/GameModeSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Selected: Classic Mode"
+horizontal_alignment = 1
+
+[node name="DifficultyPanel" type="Panel" parent="GamePanel/GameSection"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="DifficultySection" type="VBoxContainer" parent="GamePanel/GameSection/DifficultyPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = -25.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="DifficultyLabel" type="Label" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "⚡ Difficulty Level:"
+
+[node name="DifficultyButtons" type="HBoxContainer" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="EasyButton" type="Button" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🐌 Easy"
+
+[node name="MediumButton" type="Button" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🚀 Medium"
+
+[node name="HardButton" type="Button" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "⚡ Hard"
+
+[node name="SelectedDifficultyLabel" type="Label" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Selected: Medium"
+horizontal_alignment = 1
+
+[node name="ColorPanel" type="Panel" parent="GamePanel/GameSection"]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="ColorSection" type="VBoxContainer" parent="GamePanel/GameSection/ColorPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = -25.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="ColorLabel" type="Label" parent="GamePanel/GameSection/ColorPanel/ColorSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "🎨 Choose Your Snake Color:"
+
+[node name="ColorButtons" type="HBoxContainer" parent="GamePanel/GameSection/ColorPanel/ColorSection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="GreenButton" type="Button" parent="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Classic Green"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_green_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_green")
+
+[node name="BlueButton" type="Button" parent="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Ocean Blue"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_blue_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_blue")
+
+[node name="RedButton" type="Button" parent="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Fire Red"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_red_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_red")
+
+[node name="PurpleButton" type="Button" parent="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Royal Purple"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_purple_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_purple")
+
+[node name="OrangeButton" type="Button" parent="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Sunset Orange"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_orange_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_orange")
+
+[node name="YellowButton" type="Button" parent="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Golden Yellow"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yellow_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_yellow")
+
+[node name="PinkButton" type="Button" parent="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Hot Pink"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pink_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_pink")
+
+[node name="CyanButton" type="Button" parent="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons"]
+custom_minimum_size = Vector2(60, 50)
+layout_mode = 2
+tooltip_text = "Electric Cyan"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cyan_pressed")
+theme_override_styles/normal = SubResource("StyleBoxFlat_cyan")
+
+[node name="SelectedColorLabel" type="Label" parent="GamePanel/GameSection/ColorPanel/ColorSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Select a color to continue"
+horizontal_alignment = 1
+
+[node name="PlayerListPanel" type="Panel" parent="GamePanel/GameSection"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="PlayerList" type="ItemList" parent="GamePanel/GameSection/PlayerListPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 25.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="ButtonContainer" type="HBoxContainer" parent="GamePanel/GameSection"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="ReadyButton" type="Button" parent="GamePanel/GameSection/ButtonContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+disabled = true
+text = "✅ Ready Up"
+
+[node name="StartButton" type="Button" parent="GamePanel/GameSection/ButtonContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+disabled = true
+text = "⚡ Start Game"
+
+[node name="AddAIButton" type="Button" parent="GamePanel/GameSection/ButtonContainer"]
+visible = false
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🤖 Add AI Player"
+
+[node name="BackButton" type="Button" parent="GamePanel/GameSection/ButtonContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 24
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🏠 Back to Menu"
+
+[connection signal="pressed" from="MainMenuPanel/VBoxContainer/SinglePlayerButton" to="." method="_on_single_player_button_pressed"]
+[connection signal="pressed" from="MainMenuPanel/VBoxContainer/MultiplayerButton" to="." method="_on_multiplayer_button_pressed"]
+[connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/GreenButton" to="." method="_on_color_button_pressed" binds= ["green"]]
+[connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/BlueButton" to="." method="_on_color_button_pressed" binds= ["blue"]]
+[connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/RedButton" to="." method="_on_color_button_pressed" binds= ["red"]]
+[connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/PurpleButton" to="." method="_on_color_button_pressed" binds= ["purple"]]
+[connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/OrangeButton" to="." method="_on_color_button_pressed" binds= ["orange"]]
+[connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/YellowButton" to="." method="_on_color_button_pressed" binds= ["yellow"]]
+[connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/PinkButton" to="." method="_on_color_button_pressed" binds= ["pink"]]
+[connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/CyanButton" to="." method="_on_color_button_pressed" binds= ["cyan"]]
+[connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ClassicButton" to="." method="_on_classic_button_pressed"]
+[connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/SPBackButton" to="." method="_on_sp_back_button_pressed"]
+[connection signal="text_changed" from="MultiplayerPanel/VBoxContainer/PlayerNamePanel/PlayerName/NameInput" to="." method="_on_name_input_text_changed"]
+[connection signal="pressed" from="MultiplayerPanel/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="MultiplayerPanel/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="MultiplayerPanel/VBoxContainer/MPBackButton" to="." method="_on_mp_back_button_pressed"]
+[connection signal="pressed" from="GamePanel/GameSection/GameModePanel/GameModeSection/GameModeButtons/ClassicModeButton" to="." method="_on_classic_mode_button_pressed"]
+[connection signal="pressed" from="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons/EasyButton" to="." method="_on_difficulty_button_pressed" binds= ["easy"]]
+[connection signal="pressed" from="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons/MediumButton" to="." method="_on_difficulty_button_pressed" binds= ["medium"]]
+[connection signal="pressed" from="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons/HardButton" to="." method="_on_difficulty_button_pressed" binds= ["hard"]]
+[connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/GreenButton" to="." method="_on_lobby_color_button_pressed" binds= ["green"]]
+[connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/BlueButton" to="." method="_on_lobby_color_button_pressed" binds= ["blue"]]
+[connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/RedButton" to="." method="_on_lobby_color_button_pressed" binds= ["red"]]
+[connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/PurpleButton" to="." method="_on_lobby_color_button_pressed" binds= ["purple"]]
+[connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/OrangeButton" to="." method="_on_lobby_color_button_pressed" binds= ["orange"]]
+[connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/YellowButton" to="." method="_on_lobby_color_button_pressed" binds= ["yellow"]]
+[connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/PinkButton" to="." method="_on_lobby_color_button_pressed" binds= ["pink"]]
+[connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/CyanButton" to="." method="_on_lobby_color_button_pressed" binds= ["cyan"]]
+[connection signal="pressed" from="GamePanel/GameSection/ButtonContainer/ReadyButton" to="." method="_on_ready_button_pressed"]
+[connection signal="pressed" from="GamePanel/GameSection/ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="GamePanel/GameSection/ButtonContainer/AddAIButton" to="." method="_on_add_ai_button_pressed"]
+[connection signal="pressed" from="GamePanel/GameSection/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://c8wbclpnvp25t"]
+
+[ext_resource type="Script" path="res://scenes/networked_main.gd" id="1_networked"]
+[ext_resource type="Texture2D" uid="uid://bj2ambwei5ogi" path="res://assets/bg.png" id="2_fps3c"]
+[ext_resource type="PackedScene" uid="uid://beaa828xfn3nx" path="res://scenes/snake_segment.tscn" id="2_io2sj"]
+[ext_resource type="PackedScene" path="res://scenes/snake_head.tscn" id="3_head"]
+[ext_resource type="PackedScene" path="res://scenes/snake_tail.tscn" id="3_tail"]
+[ext_resource type="PackedScene" uid="uid://caut3o1x5xiqd" path="res://scenes/hud.tscn" id="3_s77pf"]
+[ext_resource type="Texture2D" uid="uid://dxyvfago0gd5f" path="res://assets/apple.png" id="5_sxedt"]
+[ext_resource type="PackedScene" path="res://scenes/results.tscn" id="6_results"]
+
+[node name="NetworkedMain" type="Node"]
+script = ExtResource("1_networked")
+snake_scene = ExtResource("2_io2sj")
+snake_head_scene = ExtResource("3_head")
+snake_tail_scene = ExtResource("3_tail")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(500, 550)
+texture = ExtResource("2_fps3c")
+
+[node name="Hud" parent="." instance=ExtResource("3_s77pf")]
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="Food" type="Sprite2D" parent="."]
+texture = ExtResource("5_sxedt")
+offset = Vector2(25, 25)
+
+[node name="Results" parent="." instance=ExtResource("6_results")]
+visible = false
+process_mode = 2
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
+[connection signal="back_to_lobby_requested" from="Results" to="." method="_on_results_back_to_lobby_requested"] 

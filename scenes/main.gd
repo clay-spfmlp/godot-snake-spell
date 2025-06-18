@@ -6,6 +6,7 @@ extends Node
 var score_p1 : int = 0
 var score_p2 : int = 0
 var game_started : bool = false
+var wall_wrapping_enabled : bool = false
 
 # Player status
 var p1_alive : bool = true
@@ -194,9 +195,24 @@ func check_collisions():
 	
 	# Only check collisions for alive players
 	if p1_alive:
-		# Check bounds for player 1
-		if snake_data_p1[0].x < 0 or snake_data_p1[0].x > cells - 1 or snake_data_p1[0].y < 0 or snake_data_p1[0].y > cells - 1:
-			p1_just_died = true
+		# Handle wall collision for player 1 based on wrapping setting
+		if wall_wrapping_enabled:
+			# Wrap around edges for player 1
+			if snake_data_p1[0].x < 0:
+				snake_data_p1[0].x = cells - 1
+			elif snake_data_p1[0].x > cells - 1:
+				snake_data_p1[0].x = 0
+			if snake_data_p1[0].y < 0:
+				snake_data_p1[0].y = cells - 1
+			elif snake_data_p1[0].y > cells - 1:
+				snake_data_p1[0].y = 0
+			
+			# Update visual position after wrapping
+			snake_p1[0].position = (snake_data_p1[0] * cell_size) + Vector2(0, cell_size)
+		else:
+			# Check bounds for player 1 - die if hit wall
+			if snake_data_p1[0].x < 0 or snake_data_p1[0].x > cells - 1 or snake_data_p1[0].y < 0 or snake_data_p1[0].y > cells - 1:
+				p1_just_died = true
 		
 		# Check self collision for player 1
 		for i in range(1, len(snake_data_p1)):
@@ -204,9 +220,24 @@ func check_collisions():
 				p1_just_died = true
 	
 	if p2_alive:
-		# Check bounds for player 2
-		if snake_data_p2[0].x < 0 or snake_data_p2[0].x > cells - 1 or snake_data_p2[0].y < 0 or snake_data_p2[0].y > cells - 1:
-			p2_just_died = true
+		# Handle wall collision for player 2 based on wrapping setting
+		if wall_wrapping_enabled:
+			# Wrap around edges for player 2
+			if snake_data_p2[0].x < 0:
+				snake_data_p2[0].x = cells - 1
+			elif snake_data_p2[0].x > cells - 1:
+				snake_data_p2[0].x = 0
+			if snake_data_p2[0].y < 0:
+				snake_data_p2[0].y = cells - 1
+			elif snake_data_p2[0].y > cells - 1:
+				snake_data_p2[0].y = 0
+			
+			# Update visual position after wrapping
+			snake_p2[0].position = (snake_data_p2[0] * cell_size) + Vector2(0, cell_size)
+		else:
+			# Check bounds for player 2 - die if hit wall
+			if snake_data_p2[0].x < 0 or snake_data_p2[0].x > cells - 1 or snake_data_p2[0].y < 0 or snake_data_p2[0].y > cells - 1:
+				p2_just_died = true
 		
 		# Check self collision for player 2
 		for i in range(1, len(snake_data_p2)):

@@ -1,0 +1,130 @@
+[gd_scene load_steps=5 format=3 uid="uid://eu4p1qv6qu60"]
+
+[ext_resource type="Script" path="res://scenes/public_rooms_browser.gd" id="1_0x8y9"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.2, 0.25, 0.35, 0.9)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.15, 0.2, 0.3, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.3, 0.4, 0.6, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4"]
+bg_color = Color(0.4, 0.5, 0.7, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PublicRoomsBrowser" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0x8y9")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.15, 0.25, 1)
+
+[node name="MainPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = -50.0
+offset_bottom = -50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="MainContainer" type="VBoxContainer" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 25
+
+[node name="HeaderContainer" type="HBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Title" type="Label" parent="MainPanel/MainContainer/HeaderContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 32
+text = "🌐 Public Game Rooms"
+
+[node name="RefreshButton" type="Button" parent="MainPanel/MainContainer/HeaderContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🔄 Refresh"
+
+[node name="StatusLabel" type="Label" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 16
+text = "Searching for public rooms..."
+horizontal_alignment = 1
+
+[node name="RoomsScrollContainer" type="ScrollContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="RoomsList" type="VBoxContainer" parent="MainPanel/MainContainer/RoomsScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 15
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BackButton" type="Button" parent="MainPanel/MainContainer/ButtonContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "⬅️ Back"
+
+[connection signal="pressed" from="MainPanel/MainContainer/HeaderContainer/RefreshButton" to="." method="_on_refresh_button_pressed"]
+[connection signal="pressed" from="MainPanel/MainContainer/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"] 

@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://5v6q2qw6qu60"]
+
+[ext_resource type="Script" path="res://scenes/room_entry.gd" id="1_0x8y9"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.25, 0.3, 0.4, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.3, 0.4, 0.6, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.4, 0.5, 0.7, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="RoomEntry" type="Panel"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+script = ExtResource("1_0x8y9")
+
+[node name="MainContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = -20.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="RoomInfoContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="RoomHeader" type="HBoxContainer" parent="MainContainer/RoomInfoContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="RoomCodeLabel" type="Label" parent="MainContainer/RoomInfoContainer/RoomHeader"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0.5, 1)
+theme_override_font_sizes/font_size = 18
+text = "[A3B7]"
+
+[node name="RoomNameLabel" type="Label" parent="MainContainer/RoomInfoContainer/RoomHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "John's Snake Party"
+text_overrun_behavior = 3
+
+[node name="RoomDetailsContainer" type="HBoxContainer" parent="MainContainer/RoomInfoContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="GameModeLabel" type="Label" parent="MainContainer/RoomInfoContainer/RoomDetailsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "🎮 Classic Mode"
+
+[node name="DifficultyLabel" type="Label" parent="MainContainer/RoomInfoContainer/RoomDetailsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "⚡ Medium"
+
+[node name="PlayersLabel" type="Label" parent="MainContainer/RoomInfoContainer/RoomDetailsContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "👥 3/8 players"
+
+[node name="JoinButton" type="Button" parent="MainContainer"]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+text = "🚀 Join Room"
+
+[connection signal="pressed" from="MainContainer/JoinButton" to="." method="_on_join_button_pressed"] 

@@ -8,6 +8,7 @@ extends Node
 var score : int = 0
 var game_started : bool = false
 var player_alive : bool = true
+var wall_wrapping_enabled : bool = false
 
 #grid variables
 var cells : int = 20
@@ -52,6 +53,8 @@ func _ready():
 		var game_data = get_tree().get_meta("game_data")
 		if "selected_snake_color" in game_data:
 			selected_color = game_data["selected_snake_color"]
+		if "wall_wrapping" in game_data:
+			wall_wrapping_enabled = game_data["wall_wrapping"]
 	
 	print("Using snake color: ", selected_color)
 	new_game()
@@ -225,9 +228,24 @@ func _on_move_timer_timeout():
 func check_collisions():
 	# Only check collisions for alive player
 	if player_alive:
-		# Check bounds
-		if snake_data[0].x < 0 or snake_data[0].x > cells - 1 or snake_data[0].y < 0 or snake_data[0].y > cells - 1:
-			player_alive = false
+		# Handle wall collision based on wrapping setting
+		if wall_wrapping_enabled:
+			# Wrap around edges
+			if snake_data[0].x < 0:
+				snake_data[0].x = cells - 1
+			elif snake_data[0].x > cells - 1:
+				snake_data[0].x = 0
+			if snake_data[0].y < 0:
+				snake_data[0].y = cells - 1
+			elif snake_data[0].y > cells - 1:
+				snake_data[0].y = 0
+			
+			# Update visual position after wrapping
+			snake[0].position = (snake_data[0] * cell_size) + Vector2(0, cell_size)
+		else:
+			# Check bounds - die if hit wall
+			if snake_data[0].x < 0 or snake_data[0].x > cells - 1 or snake_data[0].y < 0 or snake_data[0].y > cells - 1:
+				player_alive = false
 		
 		# Check self collision
 		for i in range(1, len(snake_data)):

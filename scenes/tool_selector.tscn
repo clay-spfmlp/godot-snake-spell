@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://tool_selector_ui"]
+
+[ext_resource type="PackedScene" path="res://scenes/bomb.tscn" id="1_bomb"]
+[ext_resource type="PackedScene" path="res://scenes/lightning.tscn" id="2_lightning"]
+[ext_resource type="PackedScene" path="res://scenes/ice.tscn" id="3_ice"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.1, 0.1, 0.1, 0.8)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5, 0.5, 0.5, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button"]
+bg_color = Color(0.2, 0.2, 0.2, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.6, 0.6, 0.6, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_selected"]
+bg_color = Color(0.4, 0.6, 0.8, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.9, 1.0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_button_hover"]
+bg_color = Color(0.3, 0.3, 0.3, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ToolSelector" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 300.0
+offset_bottom = 100.0
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -25.0
+offset_right = 290.0
+offset_bottom = -5.0
+text = "Dead Player Tools - Click to Select:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -280.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 70.0
+alignment = 1
+
+[node name="BombButton" type="Button" parent="Panel/ButtonContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 60)
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_selected")
+text = "💣
+Bomb"
+
+[node name="LightningButton" type="Button" parent="Panel/ButtonContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 60)
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_selected")
+text = "⚡
+Lightning"
+
+[node name="IceButton" type="Button" parent="Panel/ButtonContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 60)
+theme_override_styles/normal = SubResource("StyleBoxFlat_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_button_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_button_selected")
+text = "🧊
+Ice" 

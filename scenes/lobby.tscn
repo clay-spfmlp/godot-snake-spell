@@ -359,8 +359,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
 theme_override_font_sizes/font_size = 18
-text = "Player"
-placeholder_text = "Enter your name"
+placeholder_text = "Enter your name (max 15 chars)"
 clear_button_enabled = true
 
 [node name="ColorPanel" type="Panel" parent="SinglePlayerPanel/VBoxContainer"]
@@ -569,7 +568,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
 theme_override_font_sizes/font_size = 18
-placeholder_text = "Enter your name"
+placeholder_text = "Enter your name (max 15 chars)"
 clear_button_enabled = true
 
 [node name="HostButton" type="Button" parent="MultiplayerPanel/VBoxContainer"]
@@ -636,111 +635,77 @@ theme_override_font_sizes/font_size = 24
 text = "Waiting for players..."
 horizontal_alignment = 1
 
-[node name="GameModePanel" type="Panel" parent="GamePanel/GameSection"]
-custom_minimum_size = Vector2(0, 100)
+[node name="SettingsPanel" type="Panel" parent="GamePanel/GameSection"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_2")
 
-[node name="GameModeSection" type="VBoxContainer" parent="GamePanel/GameSection/GameModePanel"]
+[node name="SettingsContainer" type="HBoxContainer" parent="GamePanel/GameSection/SettingsPanel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = 15.0
-offset_right = -25.0
-offset_bottom = -15.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 30
 
-[node name="GameModeLabel" type="Label" parent="GamePanel/GameSection/GameModePanel/GameModeSection"]
+[node name="ModeContainer" type="VBoxContainer" parent="GamePanel/GameSection/SettingsPanel/SettingsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="ModeLabel" type="Label" parent="GamePanel/GameSection/SettingsPanel/SettingsContainer/ModeContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
-theme_override_font_sizes/font_size = 18
-text = "🎮 Game Mode:"
+theme_override_font_sizes/font_size = 14
+text = "🎮 Mode:"
 
-[node name="GameModeButtons" type="HBoxContainer" parent="GamePanel/GameSection/GameModePanel/GameModeSection"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="ClassicModeButton" type="Button" parent="GamePanel/GameSection/GameModePanel/GameModeSection/GameModeButtons"]
-custom_minimum_size = Vector2(150, 40)
+[node name="ModeOption" type="OptionButton" parent="GamePanel/GameSection/SettingsPanel/SettingsContainer/ModeContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 14
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
 theme_override_styles/normal = SubResource("StyleBoxFlat_3")
-text = "🐍 Classic"
 
-[node name="SelectedModeLabel" type="Label" parent="GamePanel/GameSection/GameModePanel/GameModeSection"]
+[node name="DifficultyContainer" type="VBoxContainer" parent="GamePanel/GameSection/SettingsPanel/SettingsContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
-theme_override_font_sizes/font_size = 14
-text = "Selected: Classic Mode"
-horizontal_alignment = 1
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
 
-[node name="DifficultyPanel" type="Panel" parent="GamePanel/GameSection"]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_2")
-
-[node name="DifficultySection" type="VBoxContainer" parent="GamePanel/GameSection/DifficultyPanel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 25.0
-offset_top = 15.0
-offset_right = -25.0
-offset_bottom = -15.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 10
-
-[node name="DifficultyLabel" type="Label" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection"]
+[node name="DifficultyLabel" type="Label" parent="GamePanel/GameSection/SettingsPanel/SettingsContainer/DifficultyContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
-theme_override_font_sizes/font_size = 18
-text = "⚡ Difficulty Level:"
-
-[node name="DifficultyButtons" type="HBoxContainer" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="EasyButton" type="Button" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons"]
-custom_minimum_size = Vector2(120, 40)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3")
-text = "🐌 Easy"
-
-[node name="MediumButton" type="Button" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons"]
-custom_minimum_size = Vector2(120, 40)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3")
-text = "🚀 Medium"
-
-[node name="HardButton" type="Button" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons"]
-custom_minimum_size = Vector2(120, 40)
-layout_mode = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 16
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3")
-text = "⚡ Hard"
-
-[node name="SelectedDifficultyLabel" type="Label" parent="GamePanel/GameSection/DifficultyPanel/DifficultySection"]
-layout_mode = 2
-theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
 theme_override_font_sizes/font_size = 14
-text = "Selected: Medium"
-horizontal_alignment = 1
+text = "⚡ Difficulty:"
+
+[node name="DifficultyOption" type="OptionButton" parent="GamePanel/GameSection/SettingsPanel/SettingsContainer/DifficultyContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+
+[node name="WrappingContainer" type="VBoxContainer" parent="GamePanel/GameSection/SettingsPanel/SettingsContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="WrappingLabel" type="Label" parent="GamePanel/GameSection/SettingsPanel/SettingsContainer/WrappingContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 14
+text = "🌐 Wall Wrapping:"
+
+[node name="WrappingOption" type="OptionButton" parent="GamePanel/GameSection/SettingsPanel/SettingsContainer/WrappingContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
 
 [node name="ColorPanel" type="Panel" parent="GamePanel/GameSection"]
 custom_minimum_size = Vector2(0, 120)
@@ -850,6 +815,7 @@ text = "Select a color to continue"
 horizontal_alignment = 1
 
 [node name="PlayerListPanel" type="Panel" parent="GamePanel/GameSection"]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_2")
@@ -866,7 +832,8 @@ offset_bottom = -25.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 18
+auto_height = true
 
 [node name="ButtonContainer" type="HBoxContainer" parent="GamePanel/GameSection"]
 layout_mode = 2
@@ -918,6 +885,7 @@ text = "🏠 Back to Menu"
 
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/SinglePlayerButton" to="." method="_on_single_player_button_pressed"]
 [connection signal="pressed" from="MainMenuPanel/VBoxContainer/MultiplayerButton" to="." method="_on_multiplayer_button_pressed"]
+[connection signal="text_changed" from="SinglePlayerPanel/VBoxContainer/PlayerNamePanel/PlayerName/SPNameInput" to="." method="_on_sp_name_input_text_changed"]
 [connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/GreenButton" to="." method="_on_color_button_pressed" binds= ["green"]]
 [connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/BlueButton" to="." method="_on_color_button_pressed" binds= ["blue"]]
 [connection signal="pressed" from="SinglePlayerPanel/VBoxContainer/ColorPanel/ColorSection/ColorButtons/RedButton" to="." method="_on_color_button_pressed" binds= ["red"]]
@@ -932,10 +900,9 @@ text = "🏠 Back to Menu"
 [connection signal="pressed" from="MultiplayerPanel/VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
 [connection signal="pressed" from="MultiplayerPanel/VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
 [connection signal="pressed" from="MultiplayerPanel/VBoxContainer/MPBackButton" to="." method="_on_mp_back_button_pressed"]
-[connection signal="pressed" from="GamePanel/GameSection/GameModePanel/GameModeSection/GameModeButtons/ClassicModeButton" to="." method="_on_classic_mode_button_pressed"]
-[connection signal="pressed" from="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons/EasyButton" to="." method="_on_difficulty_button_pressed" binds= ["easy"]]
-[connection signal="pressed" from="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons/MediumButton" to="." method="_on_difficulty_button_pressed" binds= ["medium"]]
-[connection signal="pressed" from="GamePanel/GameSection/DifficultyPanel/DifficultySection/DifficultyButtons/HardButton" to="." method="_on_difficulty_button_pressed" binds= ["hard"]]
+[connection signal="item_selected" from="GamePanel/GameSection/SettingsPanel/SettingsContainer/ModeContainer/ModeOption" to="." method="_on_mode_option_item_selected"]
+[connection signal="item_selected" from="GamePanel/GameSection/SettingsPanel/SettingsContainer/DifficultyContainer/DifficultyOption" to="." method="_on_difficulty_option_item_selected"]
+[connection signal="item_selected" from="GamePanel/GameSection/SettingsPanel/SettingsContainer/WrappingContainer/WrappingOption" to="." method="_on_wrapping_option_item_selected"]
 [connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/GreenButton" to="." method="_on_lobby_color_button_pressed" binds= ["green"]]
 [connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/BlueButton" to="." method="_on_lobby_color_button_pressed" binds= ["blue"]]
 [connection signal="pressed" from="GamePanel/GameSection/ColorPanel/ColorSection/ColorButtons/RedButton" to="." method="_on_lobby_color_button_pressed" binds= ["red"]]

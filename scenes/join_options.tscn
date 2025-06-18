@@ -1,0 +1,179 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8yay2n4qxqxr"]
+
+[ext_resource type="Script" path="res://scenes/join_options.gd" id="1_0x8y9"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.2, 0.25, 0.35, 0.9)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.15, 0.2, 0.3, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.3, 0.4, 0.6, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4"]
+bg_color = Color(0.4, 0.5, 0.7, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="JoinOptions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0x8y9")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.15, 0.25, 1)
+
+[node name="MainPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -350.0
+offset_right = 400.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="MainContainer" type="VBoxContainer" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "🔍 Join Game Room"
+horizontal_alignment = 1
+
+[node name="BrowseSection" type="VBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="BrowseLabel" type="Label" parent="MainPanel/MainContainer/BrowseSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "🌐 Browse Public Rooms"
+horizontal_alignment = 1
+
+[node name="BrowseDescription" type="Label" parent="MainPanel/MainContainer/BrowseSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "See all available public rooms and join one that looks fun!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="BrowseButton" type="Button" parent="MainPanel/MainContainer/BrowseSection"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🌐 Browse Public Rooms"
+
+[node name="Separator" type="HSeparator" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_colors/separator = Color(0.4, 0.5, 0.6, 0.5)
+theme_override_constants/separation = 20
+
+[node name="CodeSection" type="VBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CodeLabel" type="Label" parent="MainPanel/MainContainer/CodeSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 20
+text = "🔑 Join with Room Code"
+horizontal_alignment = 1
+
+[node name="CodeDescription" type="Label" parent="MainPanel/MainContainer/CodeSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Enter a 4-character room code to join a specific room (works for both public and private rooms)"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CodeInputContainer" type="HBoxContainer" parent="MainPanel/MainContainer/CodeSection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CodeInput" type="LineEdit" parent="MainPanel/MainContainer/CodeSection/CodeInputContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+placeholder_text = "Enter room code (e.g., A3B7)"
+max_length = 4
+alignment = 1
+
+[node name="JoinCodeButton" type="Button" parent="MainPanel/MainContainer/CodeSection/CodeInputContainer"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 18
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+disabled = true
+text = "🚀 Join Room"
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BackButton" type="Button" parent="MainPanel/MainContainer/ButtonContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "⬅️ Back"
+
+[connection signal="pressed" from="MainPanel/MainContainer/BrowseSection/BrowseButton" to="." method="_on_browse_button_pressed"]
+[connection signal="text_changed" from="MainPanel/MainContainer/CodeSection/CodeInputContainer/CodeInput" to="." method="_on_code_input_text_changed"]
+[connection signal="pressed" from="MainPanel/MainContainer/CodeSection/CodeInputContainer/JoinCodeButton" to="." method="_on_join_code_button_pressed"]
+[connection signal="pressed" from="MainPanel/MainContainer/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"] 

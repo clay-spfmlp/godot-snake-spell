@@ -152,4 +152,21 @@ func get_ai_players():
 	return ai_players
 
 func clear_ai_players():
-	ai_players.clear() 
+	ai_players.clear()
+
+func kick_player(peer_id: int):
+	if not multiplayer.is_server():
+		return
+	
+	print("Kicking player: ", peer_id)
+	
+	# Remove from players dictionary
+	if players.has(peer_id):
+		players.erase(peer_id)
+	
+	# Disconnect the peer
+	if multiplayer_peer and multiplayer_peer.has_peer(peer_id):
+		multiplayer_peer.disconnect_peer(peer_id)
+	
+	# Emit disconnection signal
+	player_disconnected.emit(peer_id) 

@@ -1,19 +1,27 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8wbclpnvp25t"]
+[gd_scene load_steps=13 format=3 uid="uid://dtwt35hdpuir7"]
 
-[ext_resource type="Script" path="res://scenes/networked_main.gd" id="1_networked"]
+[ext_resource type="Script" uid="uid://imtpfadmoegn" path="res://scenes/networked_main.gd" id="1_networked"]
 [ext_resource type="Texture2D" uid="uid://bj2ambwei5ogi" path="res://assets/bg.png" id="2_fps3c"]
 [ext_resource type="PackedScene" uid="uid://beaa828xfn3nx" path="res://scenes/snake_segment.tscn" id="2_io2sj"]
-[ext_resource type="PackedScene" path="res://scenes/snake_head.tscn" id="3_head"]
-[ext_resource type="PackedScene" path="res://scenes/snake_tail.tscn" id="3_tail"]
-[ext_resource type="PackedScene" uid="uid://caut3o1x5xiqd" path="res://scenes/hud.tscn" id="3_s77pf"]
-[ext_resource type="Texture2D" uid="uid://dxyvfago0gd5f" path="res://assets/apple.png" id="5_sxedt"]
-[ext_resource type="PackedScene" path="res://scenes/results.tscn" id="6_results"]
+[ext_resource type="PackedScene" uid="uid://bkx8h2m5n3qr1" path="res://scenes/snake_head.tscn" id="3_head"]
+[ext_resource type="PackedScene" uid="uid://tmcq5gpw66gu" path="res://scenes/hud.tscn" id="3_s77pf"]
+[ext_resource type="PackedScene" uid="uid://c7nak4p2x8n5t" path="res://scenes/snake_tail.tscn" id="3_tail"]
+[ext_resource type="PackedScene" uid="uid://bmb84a20xfn40" path="res://scenes/bomb.tscn" id="4_bomb"]
+[ext_resource type="PackedScene" uid="uid://d3uiw58is0wmh" path="res://scenes/lightning.tscn" id="5_lightning"]
+[ext_resource type="PackedScene" uid="uid://lliw58is0wmh" path="res://scenes/ice.tscn" id="6_ice"]
+[ext_resource type="PackedScene" path="res://scenes/tool_selector.tscn" id="7_tools"]
+[ext_resource type="Texture2D" uid="uid://dxyvfago0gd5f" path="res://assets/apple.png" id="8_sxedt"]
+[ext_resource type="PackedScene" path="res://scenes/results.tscn" id="9_results"]
 
 [node name="NetworkedMain" type="Node"]
 script = ExtResource("1_networked")
 snake_scene = ExtResource("2_io2sj")
 snake_head_scene = ExtResource("3_head")
 snake_tail_scene = ExtResource("3_tail")
+bomb_scene = ExtResource("4_bomb")
+lightning_scene = ExtResource("5_lightning")
+ice_scene = ExtResource("6_ice")
+tool_selector_scene = ExtResource("7_tools")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
@@ -26,12 +34,12 @@ texture = ExtResource("2_fps3c")
 wait_time = 0.1
 
 [node name="Food" type="Sprite2D" parent="."]
-texture = ExtResource("5_sxedt")
+texture = ExtResource("8_sxedt")
 offset = Vector2(25, 25)
 
-[node name="Results" parent="." instance=ExtResource("6_results")]
-visible = false
+[node name="Results" parent="." instance=ExtResource("9_results")]
 process_mode = 2
+visible = false
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]
-[connection signal="back_to_lobby_requested" from="Results" to="." method="_on_results_back_to_lobby_requested"] 
+[connection signal="back_to_lobby_requested" from="Results" to="." method="_on_results_back_to_lobby_requested"]

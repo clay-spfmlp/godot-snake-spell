@@ -48,14 +48,14 @@ func display_results(final_scores: Dictionary, winner_info: Dictionary):
 	score_list.clear()
 	for i in range(sorted_players.size()):
 		var player = sorted_players[i]
-		var position = i + 1
+		var rank = i + 1
 		var medal = ""
 		
-		match position:
+		match rank:
 			1: medal = "🥇"
 			2: medal = "🥈" 
 			3: medal = "🥉"
-			_: medal = str(position) + "."
+			_: medal = str(rank) + "."
 		
 		var score_text = medal + " " + player.name + " - " + str(player.score) + " points"
 		score_list.add_item(score_text)

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 NetworkManager="*res://scenes/network_manager.gd"
+RoomManager="*res://scripts/RoomManager.gd"
 
 [display]
 

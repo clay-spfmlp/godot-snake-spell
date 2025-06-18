@@ -1,0 +1,187 @@
+[gd_scene load_steps=6 format=3 uid="uid://5t0a7x8dkegm"]
+
+[ext_resource type="Script" uid="uid://6173fkvu0x15" path="res://scenes/multiplayer_menu.gd" id="1_0x8y9"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.2, 0.25, 0.35, 0.9)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.15, 0.2, 0.3, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4"]
+bg_color = Color(0.4, 0.5, 0.7, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.3, 0.4, 0.6, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="MultiplayerMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0x8y9")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.15, 0.25, 1)
+
+[node name="MainPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -350.0
+offset_right = 400.0
+offset_bottom = 381.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="MainContainer" type="VBoxContainer" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="Title" type="Label" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 42
+text = "🌐 Multiplayer"
+horizontal_alignment = 1
+
+[node name="PlayerNameSection" type="VBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="NameLabel" type="Label" parent="MainPanel/MainContainer/PlayerNameSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "👤 Player Name:"
+
+[node name="NameInput" type="LineEdit" parent="MainPanel/MainContainer/PlayerNameSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+placeholder_text = "Enter your player name"
+max_length = 15
+
+[node name="OptionsContainer" type="VBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="CreateRoomSection" type="VBoxContainer" parent="MainPanel/MainContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="CreateRoomLabel" type="Label" parent="MainPanel/MainContainer/OptionsContainer/CreateRoomSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "🏠 Create Game Room"
+horizontal_alignment = 1
+
+[node name="CreateRoomDescription" type="Label" parent="MainPanel/MainContainer/OptionsContainer/CreateRoomSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Host a new game room with custom settings. You'll get a 4-character room code that others can use to join."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CreateRoomButton" type="Button" parent="MainPanel/MainContainer/OptionsContainer/CreateRoomSection"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+disabled = true
+text = "🚀 Create Room"
+
+[node name="Separator" type="HSeparator" parent="MainPanel/MainContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="JoinRoomSection" type="VBoxContainer" parent="MainPanel/MainContainer/OptionsContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="JoinRoomLabel" type="Label" parent="MainPanel/MainContainer/OptionsContainer/JoinRoomSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 24
+text = "🔍 Join Game Room"
+horizontal_alignment = 1
+
+[node name="JoinRoomDescription" type="Label" parent="MainPanel/MainContainer/OptionsContainer/JoinRoomSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Browse public rooms or join with a room code. Find the perfect game to join!"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="JoinRoomButton" type="Button" parent="MainPanel/MainContainer/OptionsContainer/JoinRoomSection"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+disabled = true
+text = "🔍 Join Room"
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BackButton" type="Button" parent="MainPanel/MainContainer/ButtonContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "⬅️ Back to Main Menu"
+
+[connection signal="text_changed" from="MainPanel/MainContainer/PlayerNameSection/NameInput" to="." method="_on_name_input_text_changed"]
+[connection signal="pressed" from="MainPanel/MainContainer/OptionsContainer/CreateRoomSection/CreateRoomButton" to="." method="_on_create_room_button_pressed"]
+[connection signal="pressed" from="MainPanel/MainContainer/OptionsContainer/JoinRoomSection/JoinRoomButton" to="." method="_on_join_room_button_pressed"]
+[connection signal="pressed" from="MainPanel/MainContainer/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]

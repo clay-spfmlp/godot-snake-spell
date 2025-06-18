@@ -1,0 +1,203 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvqxj8n4qxqxr"]
+
+[ext_resource type="Script" path="res://scenes/room_creation.gd" id="1_0x8y9"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1"]
+bg_color = Color(0.2, 0.25, 0.35, 0.9)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2"]
+bg_color = Color(0.15, 0.2, 0.3, 0.9)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3"]
+bg_color = Color(0.3, 0.4, 0.6, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4"]
+bg_color = Color(0.4, 0.5, 0.7, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="RoomCreation" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0x8y9")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.15, 0.25, 1)
+
+[node name="MainPanel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -300.0
+offset_right = 400.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_1")
+
+[node name="MainContainer" type="VBoxContainer" parent="MainPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 40.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+
+[node name="Title" type="Label" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "🏠 Create Game Room"
+horizontal_alignment = 1
+
+[node name="RoomNameSection" type="VBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RoomNameLabel" type="Label" parent="MainPanel/MainContainer/RoomNameSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "🎮 Room Name:"
+
+[node name="RoomNameInput" type="LineEdit" parent="MainPanel/MainContainer/RoomNameSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_2")
+placeholder_text = "Enter room name (e.g., \"John's Snake Party\")"
+max_length = 30
+
+[node name="VisibilitySection" type="VBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="VisibilityLabel" type="Label" parent="MainPanel/MainContainer/VisibilitySection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "👁️ Room Visibility:"
+
+[node name="VisibilityButtons" type="HBoxContainer" parent="MainPanel/MainContainer/VisibilitySection"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="PublicButton" type="Button" parent="MainPanel/MainContainer/VisibilitySection/VisibilityButtons"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🌐 Public"
+
+[node name="PrivateButton" type="Button" parent="MainPanel/MainContainer/VisibilitySection/VisibilityButtons"]
+custom_minimum_size = Vector2(150, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 16
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "🔒 Private"
+
+[node name="VisibilityDescription" type="Label" parent="MainPanel/MainContainer/VisibilitySection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.8, 0.9, 1)
+theme_override_font_sizes/font_size = 14
+text = "Public rooms appear in the room browser. Private rooms can only be joined with the room code."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="RoomCodeSection" type="VBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="RoomCodeLabel" type="Label" parent="MainPanel/MainContainer/RoomCodeSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.95, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "🔑 Room Code:"
+
+[node name="RoomCodeDisplay" type="Panel" parent="MainPanel/MainContainer/RoomCodeSection"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_2")
+
+[node name="RoomCodeText" type="Label" parent="MainPanel/MainContainer/RoomCodeSection/RoomCodeDisplay"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 0.5, 1)
+theme_override_font_sizes/font_size = 32
+text = "A3B7"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonContainer" type="HBoxContainer" parent="MainPanel/MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="BackButton" type="Button" parent="MainPanel/MainContainer/ButtonContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+text = "⬅️ Back"
+
+[node name="CreateRoomButton" type="Button" parent="MainPanel/MainContainer/ButtonContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 20
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3")
+disabled = true
+text = "🚀 Create Room"
+
+[connection signal="text_changed" from="MainPanel/MainContainer/RoomNameSection/RoomNameInput" to="." method="_on_room_name_input_text_changed"]
+[connection signal="pressed" from="MainPanel/MainContainer/VisibilitySection/VisibilityButtons/PublicButton" to="." method="_on_public_button_pressed"]
+[connection signal="pressed" from="MainPanel/MainContainer/VisibilitySection/VisibilityButtons/PrivateButton" to="." method="_on_private_button_pressed"]
+[connection signal="pressed" from="MainPanel/MainContainer/ButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MainPanel/MainContainer/ButtonContainer/CreateRoomButton" to="." method="_on_create_room_button_pressed"] 
